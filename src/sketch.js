@@ -7,6 +7,7 @@
 // The motion is controlled by affecting the acceleration (in this case towards the mouse)
 
 let snake = [];
+seconds=60;
 
 function setup() {
     createCanvas(600,600);
@@ -14,6 +15,9 @@ function setup() {
         snake[i] = new Mover();
     }
     bg = loadImage("background.jpg");
+    begin = millis();
+    time = 60;
+    duration = 60;
 }
 
 function draw() {
@@ -28,5 +32,9 @@ function draw() {
     text("Food:", 10, 30);
     text("0", 90, 30);
     text("Time:", 10, 60);
-    text("60", 90, 60);
+
+    if (time > 0){
+        time = duration - (int)((millis() - begin)/1000);
+        text(time, 90, 60);
+    }
 }
