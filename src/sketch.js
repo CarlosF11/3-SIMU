@@ -34,12 +34,13 @@ function draw() {
     distance = distance.sub(worm.position);
 
     //Funcions del cuc
-    if(abs(distance.x) > 5) {
-        worm.display();
-    } else {
+    if(abs(distance.x) < 20 && abs(distance.y) < 20){
         nworms++;
         worm.update();
+    } else {
+        worm.display();
     }
+    console.log(distance);
 
     /*
     for (let i = 0; i < snake.length; i++) {
