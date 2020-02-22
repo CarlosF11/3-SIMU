@@ -3,41 +3,54 @@
 // http://natureofcode.com
 
 // Demonstration of the basics of motion with vector.
-// A "Mover" object stores position, velocity, and acceleration as vectors
+// A "mover" object stores position, velocity, and acceleration as vectors
 // The motion is controlled by affecting the acceleration (in this case towards the mouse)
 
-let snake = [];
+//let snake = [];
 nworms = 0; //número de cucs que s'ha menjat la serp
 
 function setup() {
+    //Creem el canvas decidint la mida
     createCanvas(600,600);
-    for (var i = 0; i < 20; i++) {
-        snake[i] = new Mover();
-    }
-    //imatges
+
+    //Creem la serp
+    snake = new Mover();
+
+    //Creem el cuc que s'anirà actualitzant de posició
+    //cada cop que se'l mengi la serp
+    worm = new Worm();
+
+    //imatge de fons
     bg = loadImage("background.jpg");
-    worm = loadImage("worm.png");
 
     //variables que ens seran útils per fer el compte enrera
     begin = millis();
     time = 60;
     duration = 60;
-
 }
 
 function draw() {
     //Dibuixem la imatge de fons
     background(bg);
 
+    /*
     for (let i = 0; i < snake.length; i++) {
         snake[i].update();
         snake[i].display();
     }
+    */
 
-    image(worm, 100, 100, width/16, height/16);
+    //Funcions del cuc
+    //worm.update();
+    worm.display();
+
+    //Funcions de la serp
+    snake.update();
+    snake.display();
 
     //Informació del menjar i el temps restant
     if (time > 0){
+        fill(0);
         textSize(24);
         text("Food:", 10, 30);
         text("0", 90, 30);
@@ -49,6 +62,7 @@ function draw() {
         fill(0, 143, 57);
         rect(150, 200, 300, 130, 10);
         textSize(24);
+        fill(0);
         text("You have eaten "+nworms+" worms", 160, 300);
         textSize(46);
         text("Time is out!!",170,250);
