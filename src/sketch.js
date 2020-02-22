@@ -1,11 +1,7 @@
-// The Nature of Code
-// Daniel Shiffman
-// http://natureofcode.com
-
-// Demonstration of the basics of motion with vector.
-// A "mover" object stores position, velocity, and acceleration as vectors
-// The motion is controlled by affecting the acceleration (in this case towards the mouse)
-
+//Queda pendiente...
+//1.Hacer que se sumen más bolitas a la serpiente
+//2.Usar la clase PVector en vez de createVector y derivados
+//Coment: la clase worm no lo dice en el enunciado pero creo que así queda más entendible
 //let snake = [];
 nworms = 0; //número de cucs que s'ha menjat la serp
 
