@@ -33,27 +33,36 @@ function draw() {
     //Dibuixem la imatge de fons
     background(bg);
 
+    //Distància entre la serp i el cuc
+    distance = createVector(snake.position.x,snake.position.y);
+    distance = distance.sub(worm.position);
+
+    //Funcions del cuc
+    if(abs(distance.x) > 5) {
+        worm.display();
+    } else {
+        nworms++;
+        worm.update();
+    }
+
     /*
     for (let i = 0; i < snake.length; i++) {
         snake[i].update();
         snake[i].display();
     }
     */
-
-    //Funcions del cuc
-    //worm.update();
-    worm.display();
-
-    //Funcions de la serp
-    snake.update();
+    //Funció de la serp
     snake.display();
 
     //Informació del menjar i el temps restant
     if (time > 0){
+        //Funció de la serp
+        snake.update();
+
         fill(0);
         textSize(24);
         text("Food:", 10, 30);
-        text("0", 90, 30);
+        text(nworms, 90, 30);
         text("Time:", 10, 60);
         time = duration - (int)((millis() - begin)/1000);
         text(time, 90, 60);

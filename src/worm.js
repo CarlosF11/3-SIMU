@@ -4,16 +4,7 @@ class Worm {
     }
 
     update() {
-        /*
-        // Compute a vector that points from position to mouse
-        var mouse = createVector(mouseX, mouseY);
-        this.acceleration = p5.Vector.sub(mouse, this.position);
-        // Set magnitude of acceleration
-        this.acceleration.setMag(0.2);
-        this.velocity.add(this.acceleration);
-        this.velocity.limit(this.topspeed);
-        this.position.add(this.velocity);
-        */
+        this.position = createVector(random(20,width-20), random(20,height-20));
     }
 
     display() {

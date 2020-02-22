@@ -10,10 +10,16 @@ class PVector {
         this.x = this.x + v.x;
     }
 
+    sub(v) {
+        this.y = this.y - v.y;
+        this.x = this.x - v.x;
+    }
+
     mag() {
         return sqrt(this.x*this.x + this.y*this.y);
     }
 
+    //Potser està mal
     limit(max) {
         if (mag()*mag() > max*max) {
             normalize();
