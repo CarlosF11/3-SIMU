@@ -17,9 +17,16 @@ function setup() {
 }
 
 function draw() {
+    //Dibuixem la imatge de fons
     background(bg);
     for (let i = 0; i < snake.length; i++) {
         snake[i].update();
         snake[i].display();
     }
+    //Informació del menjar i el temps restant
+    textSize(24);
+    text("Food:", 10, 30);
+    text("0", 90, 30);
+    text("Time:", 10, 60);
+    text("60", 90, 60);
 }
